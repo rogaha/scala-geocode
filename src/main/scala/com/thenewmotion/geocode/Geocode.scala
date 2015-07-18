@@ -11,10 +11,11 @@ class Geocode(http: Http = Http) {
    * This call to google service is limited
    * @see https://developers.google.com/maps/documentation/geocoding/#Limits
    */
-  def ?(l: Location)(implicit ec: ExecutionContext): Future[Either[Error, List[Result]]] = {
-    import l._
+  def ?(p: Parameters)(implicit ec: ExecutionContext): Future[Either[Error, List[Result]]] = {
+    import p._
     val parameters = List(
-      "latlng" -> s"$latitude,$longitude",
+      "address" -> s"$address",
+      "key" -> s"$apikey",
       "sensor" -> "false"
     )
     val req = url("https://maps.googleapis.com/maps/api/geocode/json") <<? parameters

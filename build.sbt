@@ -4,6 +4,7 @@ val geocode =
   .settings(
     organization := "com.thenewmotion",
     description := "Scala Google geocode api client",
+    
     libraryDependencies ++= Seq(
       "net.databinder.dispatch" %% "dispatch-core" % "0.11.2",
       "io.spray" %% "spray-json" % "1.2.6",

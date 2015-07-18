@@ -16,6 +16,9 @@ private[geocode] object Formats {
     })
 
   implicit val AddressFmt = jsonFormat3(Address)
+  implicit val PointFmt = jsonFormat3(Point)
+  implicit val RectangleFmt = jsonFormat3(Rectangle)
+  implicit val GeometryFmt = jsonFormat3(Geometry)
   implicit val ResponseResultFmt = jsonFormat3(Result)
   implicit val GeocodeResponseFmt = jsonFormat2(Response)
 

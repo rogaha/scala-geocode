@@ -1,16 +1,33 @@
 package com.thenewmotion.geocode
 
-
 case class Address(
-  long_name: String,
-  short_name: String,
-  types: List[String]
+    long_name: String, 
+    short_name: String, 
+    types: List[String]
+)
+
+case class Point(
+    lat: Double,
+    lng: Double
+)
+
+case class Rectangle(
+    northeast: Point,
+    southwest: Point
+)
+
+case class Geometry (
+    bounds: Option[Rectangle],
+    location: Point,
+    location_type: String,
+    viewport: Rectangle
 )
 
 case class Result(
-  address_components: List[Address],
-  formatted_address: String,
-  types: List[String]
+    address_components: List[Address], 
+    formatted_address: String,
+    geometry: Geometry,
+    types: List[String]
 )
 
 case class Response(
